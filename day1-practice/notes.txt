@@ -1,0 +1,2 @@
+Day 1 of DevOps Bootcamp — I installed WSL2, Docker, Git, VS Code, AWS CLI, Terraform
+I am learning DevOps one step at a time.
