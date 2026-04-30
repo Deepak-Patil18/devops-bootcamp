@@ -1,0 +1,26 @@
+name: Shell Script Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check bash scripts exist
+        run: |
+          echo 'Checking for shell scripts...'
+          find . -name '*.sh' -type f
+          echo 'All scripts found!'
+
+      - name: Show repository structure
+        run: |
+          echo 'Repository structure:'
+          ls -la
