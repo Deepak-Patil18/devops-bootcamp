@@ -1,0 +1,28 @@
+# Stage 1: Use official Python slim image as base
+FROM python:3.11-slim
+
+# Set who made this image
+LABEL maintainer="deeppatil021@gmail.com"
+LABEL version="1.0.0"
+
+# Set working directory inside the container
+# All commands after this run from /app
+WORKDIR /app
+
+# Copy requirements FIRST (for caching)
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Now copy the application code
+COPY app.py .
+
+# Set environment variable
+ENV APP_NAME="My Flask App"
+
+# Document that the app uses port 5000
+EXPOSE 5000
+
+# Command to run when container starts
+CMD ["python", "app.py"]
