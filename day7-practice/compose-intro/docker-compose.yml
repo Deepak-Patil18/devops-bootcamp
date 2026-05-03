@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+
+  web:
+    image: nginx:latest
+    ports:
+      - '8080:80'
+    container_name: my-web
+
+  whoami:
+    image: traefik/whoami
+    ports:
+      - '8081:80'
+    container_name: my-whoami
